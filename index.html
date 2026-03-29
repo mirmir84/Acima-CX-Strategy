@@ -1789,6 +1789,140 @@
     letter-spacing: 0.08em;
     z-index: 1000;
   }
+
+  /* ================================
+     MOBILE RESPONSIVENESS
+  ================================ */
+  @media (max-width: 768px) {
+    body { overflow-y: auto; height: auto; }
+
+    #deck { height: auto; min-height: 100vh; }
+
+    .slide {
+      position: relative;
+      opacity: 1 !important;
+      pointer-events: all !important;
+      height: auto;
+      min-height: 100vh;
+      display: none;
+    }
+
+    .slide.active { display: flex; }
+
+    /* Cover slide */
+    .s1 { padding: 56px 28px 100px; justify-content: flex-start; }
+    .s1::before { width: 300px; height: 300px; top: -80px; right: -60px; }
+    .s1::after { display: none; }
+    .s1-name { font-size: clamp(36px, 10vw, 52px); }
+    .s1-title { font-size: 16px; }
+    .s1-tagline { font-size: 14px; max-width: 100%; }
+    .s1-meta { flex-direction: column; gap: 16px; }
+    .s1-badge { position: static; width: 100px; height: 100px; margin-top: 32px; }
+    .s1-badge-num { font-size: 28px; }
+
+    /* About slide */
+    .s-about { flex-direction: column; }
+    .about-left { width: 100%; padding: 40px 28px 32px; }
+    .about-right { padding: 32px 28px 100px; }
+    .about-skills-grid { grid-template-columns: 1fr; }
+    .about-philosophy { font-size: 18px; }
+
+    /* Two-column slides -> stack */
+    .s2 { flex-direction: column; }
+    .s2-left { width: 100%; padding: 40px 28px 28px; }
+    .s2-right { padding: 28px 28px 100px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-num { font-size: 28px; }
+
+    /* Strategic lens */
+    .s3 { padding: 48px 28px 100px; }
+    .pillars-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pillar-card { padding: 20px 16px; }
+    .pillar-title { font-size: 15px; }
+    .pillar-body { font-size: 12px; }
+
+    /* Customer insight */
+    .s4 { padding: 48px 28px 100px; }
+    .s4-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+
+    /* Journey map */
+    .s5 { padding: 40px 20px 100px; }
+    .journey-stages {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .journey-stages::before { display: none; }
+    .stage-dot { width: 44px; height: 44px; font-size: 16px; }
+    .pain-grid { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .pain-card { font-size: 10px; padding: 10px; }
+
+    /* Pain points */
+    .s6 { padding: 48px 28px 100px; }
+    .pain-points-grid { grid-template-columns: 1fr; gap: 12px; }
+    .pp-pct { font-size: 26px; }
+
+    /* CX Strategy Framework */
+    .s7 { padding: 48px 28px 100px; }
+    .framework-wrap { grid-template-columns: 1fr; gap: 24px; }
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+
+    /* CX Ecosystem */
+    .s8 { padding: 48px 28px 100px; }
+    .ecosystem-wrap { grid-template-columns: 1fr; gap: 24px; }
+
+    /* Partnership model */
+    .s10-partner { padding: 48px 28px 100px; }
+    .partner-model { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Roadmap */
+    .s-roadmap { padding: 48px 20px 100px; }
+    .roadmap-table { border-radius: 12px; overflow-x: auto; }
+    .rm-header, .rm-row {
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+    }
+    .rm-header div:nth-child(3),
+    .rm-header div:nth-child(4),
+    .rm-row .rm-cell:nth-child(3),
+    .rm-row .rm-cell:nth-child(4) { display: none; }
+
+    /* Timeline 30/60/90 */
+    .s-timeline { padding: 48px 28px 100px; }
+    .timeline-grid { grid-template-columns: 1fr; gap: 16px; }
+    .tl-card { padding: 24px 20px; }
+    .tl-day { font-size: 36px; }
+
+    /* Closing */
+    .s11 { flex-direction: column; padding: 56px 28px 100px; }
+    .s11-left { padding-right: 0; margin-bottom: 32px; }
+    .s11-right { width: 100%; }
+    .closing-headline { font-size: clamp(28px, 8vw, 42px); }
+
+    /* Navigation */
+    #nav {
+      bottom: 16px;
+      padding: 10px 20px;
+      gap: 12px;
+    }
+
+    #nav button { width: 40px; height: 40px; font-size: 20px; }
+
+    #key-hint { display: none; }
+
+    /* Common helpers */
+    .slide-headline { font-size: clamp(24px, 6vw, 36px) !important; }
+    .center-headline { font-size: clamp(22px, 5.5vw, 32px); }
+  }
+
+  @media (max-width: 480px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .about-skills-grid { grid-template-columns: 1fr; }
+    .journey-stages { grid-template-columns: repeat(2, 1fr); }
+    .pain-grid { grid-template-columns: 1fr 1fr; }
+    .s4-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -2344,70 +2478,6 @@
     </div>
   </div>
 
-  <!-- SLIDE 9: AGENTIC AI & DATA PLATFORMS -->
-  <div class="slide s9-ai">
-    <span class="slide-tag">Technology &amp; Innovation · Implementing Agentic AI &amp; Data Platforms</span>
-    <h2 class="slide-headline light">Three Horizons for AI-Powered CX.<br>Applied to Acima's Reality.</h2>
-    <div class="ai-grid">
-      <div class="ai-card aic-1">
-        <div class="ai-card-icon">📊</div>
-        <div class="ai-card-title">Quick Wins<br>AI Assist &amp; Automation</div>
-        <div class="ai-card-body">Immediately measurable. Augment agents and automate routine workflows so customers get faster, more consistent resolution without replacing the human connection they sometimes need.</div>
-        <div class="ai-card-examples">
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>AI agent assist: surface payoff amounts, payment history, and next steps to support agents in real time</span></div>
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Automated self-service: payment date changes, account recovery, VLC reissuance — no call required</span></div>
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Proactive SMS/push when a payment is upcoming, a VLC is expiring, or a payoff window is closing</span></div>
-        </div>
-      </div>
-      <div class="ai-card aic-2">
-        <div class="ai-card-icon">🏗️</div>
-        <div class="ai-card-title">Foundation Building<br>CDP &amp; Unified Data</div>
-        <div class="ai-card-body">The unglamorous infrastructure work that enables everything else. A unified customer data platform connects CRM, app events, support interactions, and merchant data into a single actionable profile.</div>
-        <div class="ai-card-examples">
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Identity resolution: match app sessions, in-store applications, and support contacts to one customer record</span></div>
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Real-time event integration: app_open, payment_failed, VLC_declined feed the orchestration layer instantly</span></div>
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Quantum Metric + CDP bridge: behavioral signals feed predictive models for churn risk and NPS forecasting</span></div>
-        </div>
-      </div>
-      <div class="ai-card aic-3">
-        <div class="ai-card-icon">🚀</div>
-        <div class="ai-card-title">Transformational<br>Agentic AI at Scale</div>
-        <div class="ai-card-body">Autonomous agents that handle complex, multi-step customer workflows end-to-end — from application questions through payoff negotiation — while escalating to humans at exactly the right moment.</div>
-        <div class="ai-card-examples">
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Autonomous issue resolution: VLC decline → diagnose reason → offer fix → confirm resolution, no agent needed</span></div>
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Predictive intervention: detect churn signals (missed payments + low NPS + no app login) → trigger loyalty offer</span></div>
-          <div class="ai-example"><div class="ai-ex-dot"></div><span>Journey orchestration: customer abandons checkout → real-time trigger → personalized re-engagement in under 60s</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ai-maturity">
-      <div class="maturity-step">
-        <div class="maturity-dot md-done">✓</div>
-        <div class="maturity-label">Descriptive</div>
-        <div class="maturity-sub">What happened? VoC, NPS, Medallia reporting</div>
-        <div class="maturity-status ms-done">Foundation exists</div>
-      </div>
-      <div class="maturity-step">
-        <div class="maturity-dot md-now">→</div>
-        <div class="maturity-label">Diagnostic</div>
-        <div class="maturity-sub">Why did it happen? QM funnels, session replay, event tracking</div>
-        <div class="maturity-status ms-now">Building now</div>
-      </div>
-      <div class="maturity-step">
-        <div class="maturity-dot md-next">◎</div>
-        <div class="maturity-label">Predictive</div>
-        <div class="maturity-sub">What will happen? Churn risk, LTV models, NPS forecasting</div>
-        <div class="maturity-status ms-next">Next horizon</div>
-      </div>
-      <div class="maturity-step">
-        <div class="maturity-dot md-next">◎</div>
-        <div class="maturity-label">Prescriptive</div>
-        <div class="maturity-sub">What should we do? Autonomous agents, real-time orchestration</div>
-        <div class="maturity-status ms-next">Future state</div>
-      </div>
-    </div>
-  </div>
-
   <!-- SLIDE 10: PARTNERSHIP MODEL (was slide 8) -->
   <div class="slide s10-partner">
     <span class="slide-tag">Cross-Functional Collaboration</span>
@@ -2579,56 +2649,12 @@
     </div>
   </div>
 
-  <!-- SLIDE 11: CLOSING -->
-  <div class="slide s11">
-    <div class="s11-left">
-      <span class="closing-tag">Why This Role. Why Now. Why Me.</span>
-      <h2 class="closing-headline">I'm not here to<br>design screens.<br>I'm here to build trust.</h2>
-      <p class="closing-sub">
-        The opportunity in financial services CX — especially in lease-to-own and alternative payments — is not a design problem. It's a trust problem. And trust is built through every interaction: the first approval, the first payment, the moment something goes wrong, and the moment a customer decides to come back.
-        <br><br>
-        I bring 9+ years of experience connecting research, service design, and growth strategy into roadmaps that cross-functional teams can actually execute. I've done this work on Acima. I know where the friction lives. I know what the data says. And I know what good looks like.
-      </p>
-      <div class="closing-cta" onclick="goToSlide(0)">↩ Back to Start</div>
-    </div>
-    <div class="s11-right">
-      <div class="strength-card">
-        <span class="sc-icon">🔬</span>
-        <div>
-          <div class="sc-title">Research-Led, Not Opinion-Led</div>
-          <div class="sc-body">Every recommendation I make is grounded in VoC, competitive data, behavioral signals, or usability evidence — not intuition alone.</div>
-        </div>
-      </div>
-      <div class="strength-card">
-        <span class="sc-icon">🗺️</span>
-        <div>
-          <div class="sc-title">Systems Thinker</div>
-          <div class="sc-body">I map the full ecosystem — frontstage and backstage — because customer experience failures are almost always operational or systemic, not just design failures.</div>
-        </div>
-      </div>
-      <div class="strength-card">
-        <span class="sc-icon">📈</span>
-        <div>
-          <div class="sc-title">Commercially Fluent</div>
-          <div class="sc-body">I connect experience metrics to business outcomes. NPS, reuse intent, conversion, and support deflection are the language I use with VP stakeholders.</div>
-        </div>
-      </div>
-      <div class="strength-card">
-        <span class="sc-icon">🤝</span>
-        <div>
-          <div class="sc-title">Built for Cross-Functional Work</div>
-          <div class="sc-body">Marketing, Product, Analytics, Operations, Compliance — I've worked across all of them. I know how to build alignment without losing momentum.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
 <!-- NAVIGATION -->
 <div id="nav">
   <button onclick="prevSlide()" title="Previous">←</button>
-  <span id="slide-counter">1 / 13</span>
+  <span id="slide-counter">1 / 12</span>
   <button onclick="nextSlide()" title="Next">→</button>
 </div>
 
@@ -2647,6 +2673,24 @@
 
   function nextSlide() { goToSlide(current + 1); }
   function prevSlide() { goToSlide(current - 1); }
+
+
+  // Touch/swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+    }
+  }, { passive: true });
 
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
