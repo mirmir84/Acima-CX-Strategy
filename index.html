@@ -1484,13 +1484,158 @@
   /* ================================
      SLIDE 9 — ROADMAP
   ================================ */
- <ul>
-  <li class="fragment"><strong>Hyper-Personalization at Scale:</strong> AI leverages real-time data to deliver 1:1 experiences.</li>
-  <li class="fragment"><strong>Predictive Customer Needs:</strong> Anticipates intent before it happens.</li>
-  <li class="fragment"><strong>Autonomous Service & AI Agents:</strong> Resolves routine issues instantly.</li>
-  <li class="fragment"><strong>Voice of Customer (VoC) Intelligence:</strong> Turns feedback into actionable insights.</li>
-  <li class="fragment"><strong>Real-Time Journey Orchestration:</strong> Dynamically adapts experiences.</li>
-</ul>
+  .s9-ai {
+    background: var(--steel);
+    padding: 56px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .ai-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .ai-card.aic-1::before { background: linear-gradient(to right, #5b9bd5, #7ab4de); }
+  .ai-card.aic-2::before { background: linear-gradient(to right, var(--gold), var(--gold-light)); }
+  .ai-card.aic-3::before { background: linear-gradient(to right, #6abf8a, #90d4ac); }
+
+  .ai-card-icon { font-size: 26px; margin-bottom: 12px; }
+
+  .ai-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .ai-card-body {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .ai-card-examples {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-example {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    align-items: flex-start;
+  }
+
+  .ai-ex-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .aic-1 .ai-ex-dot { background: #7ab4de; }
+  .aic-2 .ai-ex-dot { background: var(--gold); }
+  .aic-3 .ai-ex-dot { background: #6abf8a; }
+
+  .ai-maturity {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .maturity-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 0 8px;
+  }
+
+  .maturity-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .maturity-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .md-done { background: #6abf8a; color: var(--steel); }
+  .md-now { background: var(--gold); color: var(--steel); }
+  .md-next { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); }
+
+  .maturity-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 3px;
+  }
+
+  .maturity-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.4;
+  }
+
+  .maturity-status {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .ms-done { color: #6abf8a; }
+  .ms-now { color: var(--gold); }
+  .ms-next { color: rgba(255,255,255,0.25); }
+
 
   /* ================================
      SLIDE 10 — 30/60/90
