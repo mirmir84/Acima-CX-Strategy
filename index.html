@@ -50,6 +50,7 @@
     transition: opacity 0.5s ease;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .slide.active {
@@ -259,7 +260,7 @@
   .s-about {
     background: var(--cream);
     color: var(--ink);
-    flex-direction: row;
+    flex-direction: row !important;
     overflow: hidden;
   }
 
@@ -467,7 +468,7 @@
   .s2 {
     background: var(--cream);
     color: var(--ink);
-    flex-direction: row;
+    flex-direction: row !important;
     overflow: hidden;
   }
 
@@ -848,21 +849,24 @@
   .journey-nps {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    margin-top: 28px;
+    margin-top: 16px;
     gap: 12px;
+    align-items: end;
+    height: 80px;
   }
 
   .nps-bar-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
   }
 
   .nps-bar {
     width: 40px;
     border-radius: 6px 6px 0 0;
     transition: height 0.4s ease;
+    min-height: 4px;
   }
 
   .nps-val {
@@ -1113,7 +1117,8 @@
     background: var(--ink);
     padding: 56px 80px;
     overflow: hidden;
-    position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   .s8::before {
@@ -1132,12 +1137,16 @@
     gap: 40px;
     margin-top: 32px;
     flex: 1;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .eco-left {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .eco-shift {
@@ -1196,6 +1205,8 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .eco-diagram-title {
@@ -1484,158 +1495,78 @@
   /* ================================
      SLIDE 9 — ROADMAP
   ================================ */
-  .s9-ai {
-    background: var(--steel);
+  .s-roadmap {
+    background: var(--cream);
+    color: var(--ink);
     padding: 56px 80px;
     display: flex;
     flex-direction: column;
   }
 
-  .ai-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 18px;
-    margin-top: 32px;
-  }
-
-  .ai-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 24px;
+  .roadmap-table {
+    margin-top: 36px;
     display: flex;
     flex-direction: column;
     gap: 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ai-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-  }
-
-  .ai-card.aic-1::before { background: linear-gradient(to right, #5b9bd5, #7ab4de); }
-  .ai-card.aic-2::before { background: linear-gradient(to right, var(--gold), var(--gold-light)); }
-  .ai-card.aic-3::before { background: linear-gradient(to right, #6abf8a, #90d4ac); }
-
-  .ai-card-icon { font-size: 26px; margin-bottom: 12px; }
-
-  .ai-card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 10px;
-    line-height: 1.25;
-  }
-
-  .ai-card-body {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.65;
     flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--mist);
   }
 
-  .ai-card-examples {
-    margin-top: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .ai-example {
-    display: flex;
-    gap: 8px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-    align-items: flex-start;
-  }
-
-  .ai-ex-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    margin-top: 6px;
-    flex-shrink: 0;
-  }
-
-  .aic-1 .ai-ex-dot { background: #7ab4de; }
-  .aic-2 .ai-ex-dot { background: var(--gold); }
-  .aic-3 .ai-ex-dot { background: #6abf8a; }
-
-  .ai-maturity {
-    margin-top: 28px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 12px;
-    padding: 20px 24px;
+  .rm-header {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  .maturity-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    padding: 0 8px;
-  }
-
-  .maturity-step:not(:last-child)::after {
-    content: '→';
-    position: absolute;
-    right: -10px;
-    top: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.2);
-  }
-
-  .maturity-dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    grid-template-columns: 180px 1fr 1fr 1fr;
+    background: var(--steel);
+    color: var(--white);
+    padding: 14px 20px;
     font-size: 11px;
-    font-weight: 700;
-  }
-
-  .md-done { background: #6abf8a; color: var(--steel); }
-  .md-now { background: var(--gold); color: var(--steel); }
-  .md-next { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); }
-
-  .maturity-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 3px;
-  }
-
-  .maturity-sub {
-    font-size: 10px;
-    color: rgba(255,255,255,0.35);
-    line-height: 1.4;
-  }
-
-  .maturity-status {
-    font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-    margin-top: 4px;
+    letter-spacing: 0.12em;
+    font-weight: 600;
   }
 
-  .ms-done { color: #6abf8a; }
-  .ms-now { color: var(--gold); }
-  .ms-next { color: rgba(255,255,255,0.25); }
+  .rm-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--mist);
+    background: white;
+    transition: background 0.15s;
+  }
 
+  .rm-row:hover { background: #f9f7f4; }
+  .rm-row:last-child { border-bottom: none; }
+
+  .rm-cell {
+    padding: 16px 20px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text-body);
+    display: flex;
+    align-items: center;
+  }
+
+  .rm-cell:first-child {
+    font-weight: 600;
+    color: var(--steel);
+    border-right: 1px solid var(--mist);
+    font-size: 12px;
+  }
+
+  .rm-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+
+  .chip-p0 { background: rgba(224,92,58,0.12); color: var(--accent); }
+  .chip-p1 { background: rgba(201,168,76,0.15); color: #8a6d2a; }
+  .chip-p2 { background: rgba(91,155,213,0.12); color: #2e6da8; }
 
   /* ================================
      SLIDE 10 — 30/60/90
@@ -2322,10 +2253,31 @@
         </div>
       </div>
 
-      <div style="display:flex;gap:16px;margin-top:20px;align-items:center;">
-        <span style="font-size:11px;color:var(--text-muted);">NPS Trend:</span>
-        <div style="flex:1;height:8px;border-radius:4px;background:linear-gradient(to right,#6abf8a 0%,#6abf8a 15%,#e8d5a3 30%,#f4a98a 50%,#e05c3a 75%,#c23b1e 100%);"></div>
-        <span style="font-size:11px;color:var(--accent);">EOA lowest</span>
+      <div class="journey-nps">
+        <div class="nps-bar-wrap">
+          <div class="nps-bar" style="height:52px;background:#6abf8a;"></div>
+          <div class="nps-val" style="color:#4a9e6b;">+62</div>
+        </div>
+        <div class="nps-bar-wrap">
+          <div class="nps-bar" style="height:40px;background:#5b9bd5;"></div>
+          <div class="nps-val" style="color:#2e6da8;">+44</div>
+        </div>
+        <div class="nps-bar-wrap">
+          <div class="nps-bar" style="height:28px;background:var(--gold);"></div>
+          <div class="nps-val" style="color:#8a6d2a;">+28</div>
+        </div>
+        <div class="nps-bar-wrap">
+          <div class="nps-bar" style="height:18px;background:#f4a98a;"></div>
+          <div class="nps-val" style="color:#c06030;">+14</div>
+        </div>
+        <div class="nps-bar-wrap">
+          <div class="nps-bar" style="height:10px;background:var(--accent);"></div>
+          <div class="nps-val" style="color:var(--accent);">+5</div>
+        </div>
+        <div class="nps-bar-wrap">
+          <div class="nps-bar" style="height:6px;background:#c23b1e;"></div>
+          <div class="nps-val" style="color:#c23b1e;">-3</div>
+        </div>
       </div>
     </div>
   </div>
